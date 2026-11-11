@@ -6,6 +6,8 @@
 
 **Data contracts and CI gates for RAG corpora.** Point `corpusgate` at your chunk files and a YAML contract. It catches duplicate IDs, empty chunks, missing access labels, wrong vector sizes, broken citation fields and obvious PII *before* they reach your vector store. It exits non-zero, so the ingest job or pull request stops.
 
+**Write-up:** [Why RAG corpora need data contracts, and how corpusgate is built](docs/writeup.md)
+
 ## Run it (60 seconds)
 
 ```bash

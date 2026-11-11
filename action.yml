@@ -1,5 +1,5 @@
-name: "RAG corpus contracts"
-description: "Gate RAG ingest or merges on a data contract for chunk files."
+name: "corpusgate"
+description: "corpusgate: gate RAG ingest or merges on a data contract for chunk files."
 branding:
   icon: "shield"
   color: "green"
