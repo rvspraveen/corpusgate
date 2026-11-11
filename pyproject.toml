@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "corpusgate"
+dynamic = ["version"]
+description = "Data contracts and CI gates for RAG corpora."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Praveen RVS" }]
+requires-python = ">=3.10"
+keywords = ["rag", "data-contracts", "data-quality", "llm", "ci", "retrieval", "validation"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+  "wimsey>=1.1,<2",
+  "polars>=1.0",
+  "pyyaml>=6.0",
+  "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6", "bandit>=1.7", "pip-audit>=2.7"]
+
+[project.scripts]
+corpusgate = "corpusgate.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/rvspraveen/corpusgate"
+Repository = "https://github.com/rvspraveen/corpusgate"
+Issues = "https://github.com/rvspraveen/corpusgate/issues"
+Changelog = "https://github.com/rvspraveen/corpusgate/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/corpusgate/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/corpusgate"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=corpusgate --cov-report=term-missing --cov-fail-under=90"

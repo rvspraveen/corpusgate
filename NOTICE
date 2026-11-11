@@ -1,0 +1,14 @@
+corpusgate
+Copyright (c) 2026 Praveen RVS. Licensed under the MIT License.
+
+This project depends on the following third-party software, used as
+unmodified dependencies (not vendored, not forked):
+
+- wimsey (https://github.com/benrutter/wimsey, https://codeberg.org/benrutter/wimsey)
+  Copyright (c) Ben Rutter. MIT License.
+  corpusgate runs every check through wimsey's public `wimsey.test` API.
+
+- narwhals (https://github.com/narwhals-dev/narwhals), MIT License (via wimsey)
+- polars (https://github.com/pola-rs/polars), MIT License
+- PyYAML (https://github.com/yaml/pyyaml), MIT License
+- rich (https://github.com/Textualize/rich), MIT License

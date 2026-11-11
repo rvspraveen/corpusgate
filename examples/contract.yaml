@@ -1,0 +1,29 @@
+# Example contract for the bundled sample corpus.
+version: 1
+rag:
+  - test: required_fields
+    fields: [chunk_id, doc_id, text, acl]
+  - test: unique_ids
+    column: chunk_id
+  - test: chunk_length
+    column: text
+    min_chars: 80
+    max_chars: 2000
+  - test: duplicate_text
+    column: text
+  - test: acl_required
+    column: acl
+    allowed: [public, internal, hr, finance]
+  - test: embedding_dim
+    column: embedding
+    dim: 16
+  - test: pii_patterns
+    column: text
+    patterns: [email, us_phone, us_ssn, card_number]
+    severity: warn
+  - test: source_metadata
+    fields: [source, page]
+    max_null_pct: 0
+wimsey:            # any native wimsey test, passed through unchanged
+  - test: row_count_should
+    be_greater_than_or_equal_to: 20
