@@ -31,8 +31,8 @@ jobs:
         run: pytest
       - name: Security scan (bandit)
         run: bandit -q -r src
-      - name: Dependency audit (pip-audit)
-        run: pip-audit --skip-editable
+      - name: Dependency audit of runtime deps (pip-audit)
+        run: pip-audit .
 
   dogfood:
     runs-on: ubuntu-latest
